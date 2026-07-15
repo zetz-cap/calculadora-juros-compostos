@@ -13,9 +13,9 @@ const totalInterestElement = document.getElementById("total-interest");
 const resultPeriodElement = document.getElementById("result-period");
 
 const DEFAULT_VALUES = {
-  initialAmount: 10000,
-  monthlyContribution: 1000,
-  years: 30,
+  initialAmount: 300000,
+  monthlyContribution: 2000,
+  years: 20,
   annualRate: 10,
   contributionTiming: "end",
 };
