@@ -13,9 +13,9 @@ const totalInterestElement = document.getElementById("total-interest");
 const resultPeriodElement = document.getElementById("result-period");
 
 const DEFAULT_VALUES = {
-  initialAmount: 500000,
-  monthlyContribution: 2000,
-  years: 20,
+  initialAmount: 10000,
+  monthlyContribution: 1000,
+  years: 30,
   annualRate: 10,
   contributionTiming: "end",
 };
@@ -252,4 +252,7 @@ form.addEventListener("submit", (event) => {
 });
 resetButton.addEventListener("click", restoreDefaults);
 [initialAmountInput, monthlyContributionInput].forEach((input) => input.addEventListener("blur", () => formatCurrencyInput(input)));
-window.addEventListener("DOMContentLoaded", runCalculation);
+window.addEventListener("DOMContentLoaded", () => {
+  // Carrega todos os parâmetros definidos em DEFAULT_VALUES ao abrir a página.
+  restoreDefaults();
+});
