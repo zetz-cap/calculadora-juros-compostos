@@ -7,23 +7,27 @@ Projeto estático em HTML, CSS e JavaScript, pronto para publicação no GitHub 
 ```text
 calculadora-juros-compostos/
 ├── index.html
+├── README.md
 ├── css/
 │   └── style.css
 └── js/
     └── script.js
 ```
 
+## Recursos
+
+- Valores em reais e formatação pt-BR.
+- Aporte inicial e mensal.
+- Prazo e rentabilidade anual.
+- Aportes no início ou no fim do mês.
+- Gráfico empilhado de capital e rendimentos.
+- Seção dinâmica “E se eu...” com três cenários de aportes extras.
+- Paleta em amarelos com textos escuros para contraste.
+
 ## Publicar no GitHub Pages
 
-1. Crie um repositório no GitHub.
-2. Envie todo o conteúdo desta pasta para a raiz do repositório.
-3. Abra **Settings > Pages**.
-4. Em **Build and deployment**, escolha **Deploy from a branch**.
-5. Selecione a branch **main** e a pasta **/(root)**.
-6. Clique em **Save**.
-
-## Testar localmente
-
-Abra o arquivo `index.html` no navegador.
-
-Para evitar limitações locais, também é possível usar a extensão Live Server do VS Code.
+1. Envie todo o conteúdo desta pasta para a raiz do repositório.
+2. Abra **Settings > Pages**.
+3. Em **Build and deployment**, escolha **Deploy from a branch**.
+4. Selecione a branch **main** e a pasta **/(root)**.
+5. Clique em **Save**.
