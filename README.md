@@ -31,3 +31,10 @@ calculadora-juros-compostos/
 3. Em **Build and deployment**, escolha **Deploy from a branch**.
 4. Selecione a branch **main** e a pasta **/(root)**.
 5. Clique em **Save**.
+
+
+## Atualização v3
+
+- Os valores de `DEFAULT_VALUES` agora são aplicados automaticamente ao abrir a página.
+- CSS e JavaScript usam `?v=3` para evitar cache antigo no GitHub Pages.
+- A seção “E se eu...” está no arquivo `index.html`, abaixo da calculadora.
