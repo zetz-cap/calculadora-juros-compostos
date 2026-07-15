@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Calculadora de juros compostos e planejamento de investimentos em reais."
+  />
+  <title>Calculadora de Juros Compostos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
 
+<body>
+  <header class="topbar">
+    <div class="container topbar-content">
+      <a class="brand" href="#" aria-label="Página inicial">
+        <span class="brand-mark">R$</span>
+        <span>Planeje seu futuro</span>
+      </a>
+      <span class="topbar-label">Calculadora de investimentos</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <span class="eyebrow">JUROS COMPOSTOS</span>
+          <h1>Descubra quanto seu dinheiro pode crescer</h1>
+          <p>
+            Simule o crescimento do seu patrimônio ao longo do tempo,
+            considerando um valor inicial, aportes mensais e uma rentabilidade estimada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-section">
+      <div class="container calculator-grid">
+        <form id="calculator-form" class="calculator-card">
+          <div class="card-heading">
+            <span class="step-number">1</span>
+            <div>
+              <h2>Informe seus dados</h2>
+              <p>Você pode alterar os valores e recalcular quando quiser.</p>
+            </div>
+          </div>
+
+          <div class="fields-grid">
+            <div class="field field-full">
+              <label for="initialAmount">Valor inicial</label>
+              <div class="input-prefix">
+                <span>R$</span>
+                <input
+                  id="initialAmount"
+                  name="initialAmount"
+                  type="text"
+                  inputmode="decimal"
+                  value="10.000,00"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+
+            <div class="field field-full">
+              <label for="monthlyContribution">Aporte mensal</label>
+              <div class="input-prefix">
+                <span>R$</span>
+                <input
+                  id="monthlyContribution"
+                  name="monthlyContribution"
+                  type="text"
+                  inputmode="decimal"
+                  value="1.000,00"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="years">Período</label>
+              <div class="input-suffix">
+                <input
+                  id="years"
+                  name="years"
+                  type="number"
+                  min="1"
+                  max="80"
+                  step="1"
+                  value="30"
+                />
+                <span>anos</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="annualRate">Rentabilidade anual</label>
+              <div class="input-suffix">
+                <input
+                  id="annualRate"
+                  name="annualRate"
+                  type="number"
+                  min="-99"
+                  max="100"
+                  step="0.1"
+                  value="10"
+                />
+                <span>% a.a.</span>
+              </div>
+            </div>
+
+            <div class="field field-full">
+              <label for="contributionTiming">Momento do aporte</label>
+              <select id="contributionTiming" name="contributionTiming">
+                <option value="end" selected>Final de cada mês</option>
+                <option value="beginning">Início de cada mês</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Calcular investimento</button>
+            <button class="secondary-button" type="button" id="reset-button">
+              Restaurar valores
+            </button>
+          </div>
+
+          <p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
+        </form>
+
+        <section class="results-card" aria-live="polite">
+          <div class="card-heading">
+            <span class="step-number">2</span>
+            <div>
+              <h2>Resultado da simulação</h2>
+              <p>Estimativa baseada nos parâmetros informados.</p>
+            </div>
+          </div>
+
+          <div class="main-result">
+            <span>Patrimônio estimado</span>
+            <strong id="future-value">R$ 0,00</strong>
+            <small id="result-period">ao final de 0 anos</small>
+          </div>
+
+          <div class="result-breakdown">
+            <article>
+              <span>Total investido</span>
+              <strong id="total-invested">R$ 0,00</strong>
+            </article>
+            <article>
+              <span>Rendimento estimado</span>
+              <strong id="total-interest">R$ 0,00</strong>
+            </article>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="investment-chart" aria-label="Gráfico da evolução do investimento"></canvas>
+          </div>
+
+          <div class="chart-legend">
+            <span><i class="legend-dot contributions"></i>Valor investido</span>
+            <span><i class="legend-dot earnings"></i>Rendimentos</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <div class="container explanation-grid">
+        <div>
+          <span class="eyebrow">COMO FUNCIONA</span>
+          <h2>O efeito dos juros compostos</h2>
+        </div>
+        <div>
+          <p>
+            Nos juros compostos, os rendimentos de cada período passam a integrar
+            o saldo que continuará rendendo nos períodos seguintes. Por isso,
+            tempo, constância dos aportes e rentabilidade têm grande impacto no resultado.
+          </p>
+          <p class="disclaimer">
+            Esta calculadora apresenta apenas uma projeção matemática. Rentabilidades
+            futuras não são garantidas e podem variar conforme o investimento escolhido.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Calculadora educacional de juros compostos.</p>
+    </div>
+  </footer>
+</body>
+</html>
