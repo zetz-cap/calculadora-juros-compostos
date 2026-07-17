@@ -132,6 +132,37 @@ select { min-height: 54px; border: 1px solid var(--border); border-radius: 10px;
 .explanation p { margin: 0 0 18px; color: var(--brown-800); font-size: 1.04rem; line-height: 1.8; }
 .disclaimer { color: var(--brown-600) !important; font-size: 0.9rem !important; }
 
+.investment-example {
+  margin-top: 28px;
+  padding: 24px 26px;
+  border: 1px solid var(--yellow-700);
+  border-radius: 16px;
+  background: rgba(255, 251, 239, 0.72);
+  box-shadow: 0 12px 30px rgba(92, 67, 0, 0.08);
+}
+
+.investment-example-label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--yellow-800);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.investment-example h3 {
+  margin: 0 0 10px;
+  color: var(--yellow-900);
+  font-size: 1.2rem;
+}
+
+.investment-example p {
+  margin: 0;
+  color: var(--brown-800);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
 @media (max-width: 960px) {
   .calculator-grid, .what-if-grid, .explanation-grid { grid-template-columns: 1fr; }
   .explanation-grid { gap: 30px; }
@@ -145,4 +176,7 @@ select { min-height: 54px; border: 1px solid var(--border); border-radius: 10px;
   .field-full { grid-column: auto; }
   .chart-wrapper { min-height: 250px; }
   .chart-legend { flex-direction: column; gap: 8px; align-items: center; }
+  .investment-example {
+    padding: 21px 20px;
+  }
 }
